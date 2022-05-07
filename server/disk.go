@@ -51,9 +51,8 @@ type Disk struct {
 }
 
 func (d Disk) isWarn() bool {
-	return float64(d.UsedMB)/float64(d.TotalMB) > 0.8
+	return d.UsedPercent > 80
 }
-
 func InitOS() (o Os) {
 	o.GOOS = runtime.GOOS
 	o.NumCPU = runtime.NumCPU()
